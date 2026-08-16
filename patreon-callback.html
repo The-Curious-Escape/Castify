@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting to Castify...</title>
+</head>
+<body>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    if (code) {
+      // Forward the authorization code back to your app's custom scheme
+      window.location.href = `castify://callback?code=${code}`;
+    }
+  </script>
+  <p>Authentication complete. Returning to Castify...</p>
+</body>
+</html>

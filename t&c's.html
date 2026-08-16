@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - Castify Help Center</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent: #FF424D;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border: #333333;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+        }
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #fff; text-decoration: none; }
+        .logo span { color: var(--accent); }
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+        }
+        nav a:hover, nav a.active { color: var(--accent); }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        h1, h2, h3 { color: #ffffff; }
+        h1 { margin-top: 0; border-bottom: 2px solid var(--border); padding-bottom: 0.75rem; }
+        h2 { margin-top: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; color: var(--accent); }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .last-updated { color: var(--text-muted); font-style: italic; font-size: 0.9rem; }
+        .help-box {
+            background: #262626;
+            padding: 1.25rem;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">Cast<span>ify</span> Help Center</a>
+            <nav>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html" class="active">Terms & Conditions</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h1>Terms of Service & Usage Rules</h1>
+            <p class="last-updated">Last Updated: August 2026</p>
+
+            <p>These terms govern your access to and use of the Castify software application across supported platforms.</p>
+
+            <h2>1. Acceptance of Terms</h2>
+            <p>By downloading, installing, or using Castify, you agree to comply with these terms. If you do not agree, you must discontinue use and uninstall the application.</p>
+
+            <h2>2. License & Intellectual Property</h2>
+            <p>Castify is provided under a personal, non-exclusive, non-transferable license. You retain full ownership of media files you import, but you must respect creator copyrights when managing feeds.</p>
+
+            <h2>3. Third-Party Content & Entitlements</h2>
+            <div class="help-box">
+                <strong>Important Notice on Patreon Content:</strong> Castify provides player functionality to stream feeds obtained through your active subscriptions. Castify does not host creator content and is not responsible for feed availability, subscription updates, or tier access modifications managed on external platforms.
+            </div>
+
+            <h2>4. Rules of Conduct</h2>
+            <p>You agree not to use Castify to:</p>
+            <ul>
+                <li>Circumvent subscription paywalls or redistribute private RSS feed links to unauthorized third parties.</li>
+                <li>Decompile, reverse engineer, or tamper with binary application code.</li>
+                <li>Upload or import corrupted/malicious media files meant to compromise device security.</li>
+            </ul>
+
+            <h2>5. Service Limitations & Troubleshooting FAQ</h2>
+            
+            <h3>Why did my Patreon feed stop updating?</h3>
+            <p>Feeds may pause if your subscription tier changes, your authentication token expires, or Patreon changes API endpoints. Re-authenticating your account in app settings usually resolves feed updating issues.</p>
+
+            <h3>What file formats are supported for local import?</h3>
+            <p>Castify supports standard audio/video containers including MP3, M4A, MP4, and WAV formats depending on your device operating system.</p>
+
+            <h2>6. Disclaimer of Warranties</h2>
+            <p>Castify is distributed "AS IS" without warranties of any kind. We do not guarantee uninterrupted playback, seamless third-party API availability, or compatibility with every audio format.</p>
+
+            <h2>7. Governing Law & Modifications</h2>
+            <p>We reserve the right to modify these terms at any time. Updates take effect immediately upon posting to this page.</p>
+
+            <h2>8. Contact Information</h2>
+            <p>For questions or feedback regarding these terms, reach out on GitHub:</p>
+            <p><a href="https://github.com/the-curious-escape/Castify" target="_blank" rel="noopener">Castify GitHub Repository</a></p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Castify. All rights reserved.
+    </footer>
+</body>
+</html>

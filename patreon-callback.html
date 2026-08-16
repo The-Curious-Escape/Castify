@@ -1,17 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Redirecting to Castify...</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecting to Castify...</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
+        }
+        .card {
+            background-color: #1e1e1e;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            max-width: 400px;
+            width: 80%;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #FF424D;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        a {
+            color: #FF424D;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
-    if (code) {
-      // Forward the authorization code back to your app's custom scheme
-      window.location.href = `castify://callback?code=${code}`;
-    }
-  </script>
-  <p>Authentication complete. Returning to Castify...</p>
+    <div class="card">
+        <div class="spinner"></div>
+        <h2>Connecting to Castify</h2>
+        <p id="status-text">Completing Patreon authentication...</p>
+        <p id="manual-link" style="display: none;">
+            If the app does not open automatically, <a id="app-url" href="#">click here to return to Castify</a>.
+        </p>
+    </div>
+
+    <script>
+        (function() {
+            // Parse query parameters from Patreon's redirect
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            const state = urlParams.get('state');
+
+            const statusText = document.getElementById('status-text');
+            const manualLink = document.getElementById('manual-link');
+            const appUrlAnchor = document.getElementById('app-url');
+
+            if (code) {
+                // Construct the deep-link URL back to your MAUI application
+                let appRedirectUri = `castify://patreon-callback?code=${encodeURIComponent(code)}`;
+                if (state) {
+                    appRedirectUri += `&state=${encodeURIComponent(state)}`;
+                }
+
+                // Update manual link for fallback
+                appUrlAnchor.href = appRedirectUri;
+
+                // Attempt automatic redirection back to app
+                window.location.href = appRedirectUri;
+
+                // Show manual link after 2 seconds if app switch didn't trigger automatically
+                setTimeout(() => {
+                    statusText.textContent = "Redirecting back to your application...";
+                    manualLink.style.display = 'block';
+                }, 2000);
+            } else {
+                statusText.textContent = "Authorization code missing or access was denied.";
+            }
+        })();
+    </script>
 </body>
 </html>
